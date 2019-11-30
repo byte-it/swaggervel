@@ -11,3 +11,9 @@ Route::get(config('swaggervel.api-docs-route'), [
     'middleware' => config('swaggervel.middleware.api', []),
     'uses' => 'SwaggervelController@ui',
 ]);
+
+Route::get(config('swaggervel.redirect-url'), [
+  'as' => 'swaggervel.redirect',
+  'middleware' => config('swaggervel.middleware.api', []),
+  'uses' => 'SwaggervelController@redirect',
+]);

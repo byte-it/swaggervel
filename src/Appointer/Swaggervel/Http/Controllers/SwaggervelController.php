@@ -55,8 +55,14 @@ class SwaggervelController extends Controller
                 'useBasicAuthenticationWithAccessCodeGrant' => config('swaggervel.use-basic-auth-with-access-code-grant') ? 'true' : 'false',
                 'uiResourcePath' => config('swaggervel.ui-resource-path'),
                 'host' => $this->makeHost(),
+                'redirectUrl' => config('swaggervel.redirect-url'),
             ])
             ->withHeaders(config('swaggervel.view-headers'));
+    }
+
+    public function redirect(Request $request){
+        return response()
+          ->view('swaggervel::redirect');
     }
 
     private function regenerateDefinitions()

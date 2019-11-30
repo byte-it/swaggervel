@@ -83,7 +83,10 @@
             plugins: [
                 SwaggerUIBundle.plugins.DownloadUrl
             ],
-            layout: "StandaloneLayout"
+            layout: "StandaloneLayout",
+            @if ($initOAuth)
+            oauth2RedirectUrl: '{{ $host }}/{{ $redirectUrl }}'
+            @endif
         });
 
         @if ($initOAuth)
